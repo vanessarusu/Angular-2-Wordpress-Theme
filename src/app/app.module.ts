@@ -51,7 +51,7 @@ import { ContactComponent } from './contact/contact.component';
     // Ng2SimplePageScrollModule.forRoot()
   ],
   providers: [PostsService,
-  {provide: APP_BASE_HREF, useValue: '/angular/wp-content/themes/Angular-2-Wordpress-Theme/dist/'}
+  {provide: APP_BASE_HREF, useValue: '/'}
   ],
   bootstrap: [AppComponent]
 })
