@@ -45,7 +45,7 @@ export class PostsService {
 	}
 	getInstagramFeed(): Observable<any> {
 		return this.http
-		.get('https://api.instagram.com/v1/users/self/media/recent?access_token=235119356.78d1867.bca5c0bf8f004a38b5d11f7bd0fabac0&count=10')
+		.get('https://api.instagram.com/v1/users/self/media/recent?access_token=235119356.78d1867.bca5c0bf8f004a38b5d11f7bd0fabac0&count=10&callback=?')
 		.map((res: Response) => res.json());
 	}
 }
