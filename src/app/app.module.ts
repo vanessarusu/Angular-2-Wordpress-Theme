@@ -51,7 +51,7 @@ import { ContactComponent } from './contact/contact.component';
     // Ng2SimplePageScrollModule.forRoot()
   ],
   providers: [PostsService,
-  {provide: APP_BASE_HREF, useValue: '/vanessarusu/bower_components/vanessarusu/'}
+  {provide: APP_BASE_HREF, useValue: '/'}
   ],
   bootstrap: [AppComponent]
 })
