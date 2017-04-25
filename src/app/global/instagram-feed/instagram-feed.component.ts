@@ -12,11 +12,11 @@ export class InstagramFeedComponent implements OnInit {
   constructor(private postService: PostsService) { }
 
   ngOnInit() {
-  	this.postService
-  	.getInstagramFeed()
-  	.subscribe(res => {
-  		this.instagramFeed = res.data;
-  	});
+  	// this.postService
+  	// .getInstagramFeed()
+  	// .subscribe(res => {
+  	// 	this.instagramFeed = res.data;
+  	// });
 
   }
 
