@@ -1,0 +1,140 @@
+@import '../../../styles.scss';
+.fixed {
+	@include boxShadow(0.75);
+	top: 0;
+	z-index: 10;
+	#logo {
+		max-width: 200px;
+	}
+	.container {
+		transform: scale(0.8);
+		// top: 0;
+		right: 0;
+	}
+}
+.spacer {
+	height: 40px;
+}
+header {
+	background: $navy;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 30;
+	// @include boxShadow(0.75);
+}
+nav {
+	#logo {
+		max-width: 280px;
+		margin: 0.8rem 2rem;
+		cursor: pointer;
+		cursor: hand;
+		float: left;
+		transition: all 0.2s ease-in-out;
+	}
+	> div {
+		display: block;
+		&:after {
+			display: block;
+			content: '';
+			clear: both;
+		}
+	}
+}
+.container {
+	margin-top: 1.5rem;
+	margin-right: 1.5rem;
+	float: right;
+	position: relative;
+	height: 30px;
+	width: 3rem;
+	cursor: pointer;
+	cursor: hand;
+	z-index: 200;
+	transform: scale(1.0);
+	transition: all 0.2s ease-in-out;
+	> div {
+		display: block;
+		height: 3px;
+		width: 2rem;
+		background: $white;
+		margin-bottom: 4px;
+		border-radius: 9px;
+		position: absolute;
+		opacity: 1;
+		left: 0.5rem;
+		-webkit-transform: rotate(0deg);
+		// -webkit-transition: transform 0.2s ease-in-out;
+		transition: transform 0.3s ease-in,
+					top 0.2s 0.3s ease-in,
+					opacity 0.2s ease-in,
+					left 0.2s ease-in;
+	}
+	> div:nth-child(1) {
+		top: 0px;
+	}
+	> div:nth-child(2) {
+		top: 8px;
+	}
+	> div:nth-child(3) {
+		top: 16px;
+	}
+	&.open {
+		> div {
+			transition: transform 0.3s 0.2s ease-out,
+						top 0.15s ease-in,
+						opacity 0.15s ease-in,
+						left 0.15s ease-in;
+		}
+		> div:nth-child(1) {
+			top: 8px;
+			-webkit-transform: rotate(135deg);
+		}
+		> div:nth-child(2) {
+			opacity: 0;
+			left: -60px;
+		}
+		> div:nth-child(3) {
+			-webkit-transform: rotate(-135deg);
+			top: 8px;
+		}
+	}
+}
+ul {
+	background: $dark;
+	opacity: 0.95;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 10;
+	padding-top: 5rem;
+	padding-top: 20vh;
+
+	li {
+		width: 100%;
+		text-align: center;
+		font-size: 2rem;
+		margin-bottom: 3rem;
+		a {
+
+		}
+	}
+}
+a {
+	color: $white;
+}
+.spacer {
+	// height: 6rem;
+
+}
+
+@media screen and (max-width: 800px) {
+	nav {
+		#logo {
+			max-width: 220px;
+		}
+	}
+}

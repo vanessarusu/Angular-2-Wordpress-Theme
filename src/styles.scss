@@ -1,0 +1,119 @@
+/* You can add global styles to this file, and also import other style files */
+// @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Martel:300,400,700');
+
+
+$white: #fff;
+$offwhite: #d9d8dd;
+$navy: #052838;
+$dark: #011216;
+$hotpink: #fc30aa;
+$mint: #1cf7cd;
+$blue: #238df7;
+
+$serif-font: 'Martel', serif;
+$sans-serif-font: 'Montserrat', sans-serif;
+
+.content {
+	max-width: 85rem;
+	width: 90%;
+	margin: 0 auto;
+	&:after {
+		content:'';
+		display: block;
+		clear: both;
+		float: none;
+	}
+}
+::selection {
+	background: $blue;
+	color: $white;
+}
+body {
+	padding-top: 60px;
+	background: $white;
+	font-family: 'Montserrat', sans-serif;
+	color: $dark;
+	overflow-x: hidden;
+}
+a {
+	text-decoration: none;
+}
+p {
+	font-size: 1rem;
+	line-height: 1.6rem;
+	// font-family: $serif-font;
+	font-weight: 300;
+	// letter-spacing: 0.5px;
+}
+ul {
+	margin: 0;
+	padding: 0;
+}
+li {
+	list-style: none;
+}
+.hidden {
+	display: none !important;
+}
+
+.button {
+	color: $white;
+	font-size: 0.8rem;
+	font-weight: 100;
+	letter-spacing: 0.5px;
+	padding: 0.5rem 1.5rem;
+	transition: all 0.2s ease-in-out;
+	transform: scale(1.0);
+	display: inline-block;
+	border-radius: 2px;
+	cursor: pointer;
+	cursor: hand;
+	&:hover {
+		transform: scale(1.02);
+	}
+	&:focus {
+		border: 2px solid $white;
+	}
+}
+.button-mint {
+	background: rgba(28,247,205,0.5);
+	border: 2px solid $mint;
+}
+.button-blue {
+	background: rgba(35,141,247,0.5);
+	border: 2px solid $blue;
+}
+
+.button-dark {
+	background: rgba(5,40,56,0.7);
+	border: 2px solid $dark;
+}
+
+@mixin boxShadow($opacity) {
+	-webkit-box-shadow: 0px 2px 20px -5px rgba(0,0,0, $opacity);
+	-moz-box-shadow: 0px 2px 20px -5px rgba(0,0,0, $opacity);
+	box-shadow: 0px 2px 20px -5px rgba(0,0,0, $opacity);
+}
+
+@mixin headingUnderline($color) {
+	content:'';
+	display: block;
+	width: 10%;
+	margin-top: 2rem;
+	height: 4px;
+	background-color: $color;
+	margin: 1rem auto;
+}
+
+@mixin transitions($time) {
+	-moz-transition: all $time ease;
+	-o-transition: all $time ease;
+	-webkit-transition: all $time ease;
+	transition: all $time ease;
+}
+
+
+
+
+
+

@@ -1,0 +1,83 @@
+@import '../../../styles.scss';
+
+:host /deep/ #services {
+	padding: 3rem 0;
+	background: $mint;
+	h5 {
+		font-size: 1.5rem;
+		margin: 0;
+		position: relative;
+		&:after {
+			content: '';
+			display: block;
+			width: 40%;
+			margin-top: 2rem;
+			height: 4px;
+			background-color: $white;
+			margin: 1rem 0;
+		}
+	}
+	p {
+		width: 90%;
+	}
+	p, li {
+		font-size: 0.8rem;
+		line-height: 1.4;
+	}
+	a {
+		color: $blue;
+		font-weight: 400;
+	}
+	.content > div {
+		float: left;
+		width: 30%;
+	}
+	ul {
+		margin-top: 2rem;
+		width: 65%;
+		float: right;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		li {
+			width: 25%;
+			margin-bottom: 1rem;
+			position: relative;
+			margin-left: 2rem;
+			&:before {
+				content:'';
+				height: 1.5rem;
+				width: 1.5rem;
+				position: absolute;
+				display: block;
+				top: -3px;
+				background: url(assets/arrow-bullet.svg) center center no-repeat;
+				background-size: cover;
+				margin-left: -2rem;
+			}
+
+		}
+	}
+}
+
+
+@media screen and (max-width: 800px){
+	:host /deep/ #services {
+		.content > div, ul, p {
+			width: 100%;
+			float: none;
+		}
+		ul {
+			li {
+				width: 40%;
+			}
+		}
+	}
+}
+
+
+
+
+
+
+

@@ -1,0 +1,59 @@
+
+<figure *ngIf="post" class="slowParallax"
+[ngStyle]="{'background': 'url('+post.acf.heroimage +')'}" #parallax>
+</figure>
+<div class="content" *ngIf="post">
+	<section id="postBody">
+		<div>
+			<h1 [ngStyle]="{'color': post.acf.color }">{{post.title.rendered}}</h1>
+			<div [innerHTML]="post.content.rendered"></div>
+		</div>
+	</section>
+
+	<aside id="sidebar" #sidebar>
+		<div class="logo-container">
+			<img [src]="post.acf.logo">
+		</div>
+		<div class="content">
+			<div class="container">
+				<div class="icon">
+					<img src="../../assets/client-profile.svg">
+				</div>
+				<div class="info">
+					<h4 [ngStyle]="{'color': post.acf.color }">Client Name:</h4>
+					<p>{{post.title.rendered}}</p>
+				</div>
+			</div>
+
+			<div class="container">
+				<div class="icon">
+					<img src="../../assets/client-projects.svg">
+				</div>
+				<div class="info">
+					<h4 [ngStyle]="{'color': post.acf.color }">Projects:</h4>
+					<p>{{post.acf.projectTypes}}</p>
+				</div>
+			</div>
+
+			<div class="container" *ngIf="post.acf.clientWebsite">
+				<div class="icon">
+					<img src="../../assets/client-contact.svg">
+				</div>
+				<div class="info">
+					<h4 [ngStyle]="{'color': post.acf.color }">Check Them Out:</h4>
+					<a href="http://{{post.acf.clientWebsite}}" target="blank" [ngStyle]="{'color': post.acf.color }">{{post.acf.clientWebsite}}</a>
+				</div>
+			</div>
+
+
+			<div>
+				<a class="button button-dark" [routerLink]="['/']">Home</a>
+			</div>
+		</div>
+	</aside>
+	
+</div>
+<div *ngIf="!post">
+	<p>no post found</p>
+</div>
+

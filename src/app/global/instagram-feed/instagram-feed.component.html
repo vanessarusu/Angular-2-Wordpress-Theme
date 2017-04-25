@@ -1,0 +1,9 @@
+<section *ngIf="instagramFeed" id="instagramFeed">
+<h3>Instagram Feed</h3>
+	<div>
+		<figure *ngFor="let post of instagramFeed">
+			<a [href]="post.link"><img [src]="post.images.thumbnail.url"></a>
+		</figure>
+	</div>
+	
+</section>

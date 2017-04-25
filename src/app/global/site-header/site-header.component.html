@@ -1,0 +1,28 @@
+<h2 class="hidden">Vanessa Rusu - Graphic and Web Designer</h2>
+<header [class.fixed]="navIsFixed" [@fadeInOut]>
+	<nav>
+	<h1 class="hidden">Main Navigation</h1>
+	<!-- <img id="logo" src="../../assets/logo.svg" [routerLink]="['/']"> -->
+	<img id="logo" src="assets/logo.svg" [routerLink]="['/']">
+		<div>
+			<div [ngClass]="{'container':true, 'open': isActive }" (click)="animateNav()">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+		<ul *ngIf="show" [@fadeInOut]>
+			<li><a pageScroll href="/" [routerLink]="['/']" (pageScrollFinish)="animateNav()">Home</a></li>
+
+			<li><a pageScroll [routerLink]="['/']" fragment="featuredWork" href="#featuredWork" (pageScrollFinish)="animateNav()">Featured Work</a></li>
+
+			<li><a pageScroll [routerLink]="['/']" fragment="services" href="#services" (pageScrollFinish)="animateNav()">Services</a></li>
+
+			<li><a pageScroll [routerLink]="['about']" (pageScrollFinish)="animateNav()">About</a></li>
+
+			<li><a pageScroll [routerLink]="['contact']" (pageScrollFinish)="animateNav()">Contact</a></li>
+		</ul>
+	</nav>
+</header>
+<div></div>
+

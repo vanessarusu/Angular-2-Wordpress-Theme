@@ -1,0 +1,32 @@
+@import '../../../styles.scss';
+
+#instagramFeed {
+	color: $white;
+	background: $navy;
+	padding: 2rem 0;
+	text-align: center;
+	figure {
+		display: inline-block;
+		margin: 2px;
+		a {
+			pointer: cursor;
+			pointer: hand;
+			transition: all 0.1s ease;
+			&:hover {
+				opacity: 0.8;
+			}
+		}
+		img {
+			width: 60px;
+			border-radius: 5px;
+		}
+
+	}
+	div {
+		&:after {
+			clear: both;
+			display: block;
+			content: '';
+		}
+	}
+}

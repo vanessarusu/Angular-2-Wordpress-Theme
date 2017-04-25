@@ -1,0 +1,82 @@
+<section id="hero">
+	<div class="content" *ngIf="homepageHero">
+		<!-- <div [innerHTML]="homepageHero?.content?.rendered"></div> -->
+		<img [src]="homepageHero.better_featured_image.source_url">
+		<div [innerHTML]="homepageHero.content.rendered"></div>
+<!-- 		<div class="buttons">
+			<a href="#" class="button button-mint">learn more</a>
+		</div> -->
+	</div>
+</section>
+<section id ="heroSupport">
+	<object type="image/svg+xml" data="assets/lightbulb.svg" id="lightbulb" #lightbulb></object>
+	<div *ngIf="heroSupport">
+		<h2>{{heroSupport.title.rendered}}</h2>
+	</div>
+	<div *ngIf="heroSupport">
+		<div [innerHTML]="heroSupport.content.rendered"></div>
+	</div>
+</section>
+<section id="featuredWork" #featuredWork>
+	<h2>Featured Work</h2>
+	<div *ngFor="let post of featuredPosts | orderBy: order; let even=even; let odd=odd" class="card">
+	<div *ngIf="even">
+		<div class="featured-image" [ngStyle]="{'background': post.acf.color }">
+			<div>
+				<div class="bg-container">
+					<div class="bg-image" [ngStyle]="{'background-image': 'url('+ post.better_featured_image.source_url + ')'}" (click)="selectProject(post.slug, post)"></div>
+				</div>
+			</div>
+		</div>
+		<div class="featured-content">
+			<div>
+				<h3 [ngStyle]="{'color': post.acf.color }">{{post.title.rendered}}</h3>
+				<div [innerHTML]="post.excerpt.rendered"></div>
+				<div>
+					<div class="button button-dark" (click)="selectProject(post.slug, post)">view project</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div *ngIf="odd && mobile">
+		<div class="featured-image" [ngStyle]="{'background': post.acf.color }">
+			<div>
+				<div class="bg-container">
+					<div class="bg-image" [ngStyle]="{'background-image': 'url('+ post.better_featured_image.source_url + ')'}" (click)="selectProject(post.slug, post)"></div>
+				</div>
+			</div>
+		</div>
+		<div class="featured-content">
+			<div>
+				<h3 [ngStyle]="{'color': post.acf.color }">{{post.title.rendered}}</h3>
+				<div [innerHTML]="post.excerpt.rendered"></div>
+				<div>
+					<div class="button button-dark" (click)="selectProject(post.slug, post)">view project</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div *ngIf="odd && !mobile">
+		<div class="featured-content">
+			<div>
+				<h3 [ngStyle]="{'color': post.acf.color }">{{post.title.rendered}}</h3>
+				<div [innerHTML]="post.excerpt.rendered"></div>
+				<div>
+					<div class="button button-dark" (click)="selectProject(post.slug, post)">view project</div>
+				</div>
+			</div>
+		</div>
+		<div class="featured-image" [ngStyle]="{'background': post.acf.color }">
+			<div>
+				<div class="bg-container">
+					<div class="bg-image" [ngStyle]="{'background-image': 'url('+ post.better_featured_image.source_url + ')'}" (click)="selectProject(post.slug, post)"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</section>
+<app-cta></app-cta>
+<app-instagram-feed></app-instagram-feed>
