@@ -9,8 +9,10 @@ import { Post } from './post';
 @Injectable()
 export class PostsService {
 
-	private postsUrl ='http://localhost:8888/vanessarusu/bower_components/vanessarusu/wp-json/wp/v2/';
-	private customUrl = 'http://localhost:8888/vanessarusu/bower_components/vanessarusu/wp-json/acf/v3/';
+	// private postsUrl ='http://localhost:8888/vanessarusu/bower_components/vanessarusu/wp-json/wp/v2/';
+	// private customUrl = 'http://localhost:8888/vanessarusu/bower_components/vanessarusu/wp-json/acf/v3/';
+	private postsUrl ='http://vanessarusu.com/angular/wp-json/wp/v2/';
+	private customUrl = 'http://vanessarusu.com/angular/wp-json/acf/v3/';
 	public post: any;
 	constructor(private http: Http) { }
 	storeSinglePost(post:Post) {
