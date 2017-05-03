@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, Jsonp, JsonpModule } from '@angular/http';
 import { APP_BASE_HREF } from '@angular/common';
 
 import { AppComponent } from './app.component';
@@ -11,6 +11,9 @@ import { PostsService } from './posts/posts.service';
 import { Ng2PageScrollModule } from 'ng2-page-scroll';
 // import {Ng2SimplePageScrollModule} from 'ng2-simple-page-scroll';
 import { Ng2OrderModule } from 'ng2-order-pipe';
+// import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+// import {BusyModule} from 'angular2-busy';
+
 
 // import { RouterModule, Routes } from '@angular/router';
 import { SiteHeaderComponent } from './global/site-header/site-header.component';
@@ -45,9 +48,12 @@ import { ContactComponent } from './contact/contact.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+    JsonpModule,
     mainRouter,
     Ng2PageScrollModule.forRoot(),
     Ng2OrderModule
+    // BrowserAnimationsModule,
+    // BusyModule
     // Ng2SimplePageScrollModule.forRoot()
   ],
   providers: [PostsService,

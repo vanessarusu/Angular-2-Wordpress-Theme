@@ -1,0 +1,60 @@
+@import '../styles.scss';
+
+#loadingScreen {
+	position: fixed;
+	z-index: 500;
+	background: $dark;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	opacity: 1;
+	h1 {
+		// display: none;
+		color: $white;
+		float: left;
+		margin-top: 45vh;
+		font-weight: 100;
+		text-transform: uppercase;
+		letter-spacing: 3px;
+		font-size: 1rem;
+		width: 100%;
+		text-align: center;
+		z-index: 505;
+		position: relative;
+	}
+	.loader {
+		height: 50px;
+		width: 50px;
+		margin: 0 auto;
+		margin-top: 30vh;
+		border-radius: 50%;
+		animation-name: bounce;
+    	animation-duration: 1000ms;
+    	animation-iteration-count: infinite;
+    	animation-timing-function: ease-in-out;
+    	&:last-of-type {
+    		margin-top: -40px;
+    		width: 20px;
+    		height: 20px;
+    		animation-delay: 200ms;
+    	}
+	}
+}
+@keyframes bounce {
+	0% {
+		transform: scale(1.0);
+		border: 2px solid $navy;
+		background: $dark;
+	}
+	50% {
+		transform: scale(1.5);
+		border: 2px solid $mint;
+		background: $navy;
+	}
+	100% {
+		transform: scale(1.0);
+		border: 2px solid $navy;
+		background: $dark;
+	}
+}

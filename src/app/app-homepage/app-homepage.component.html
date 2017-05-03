@@ -1,7 +1,11 @@
+<!-- <div *ngIf="preload" id="yolo">
+	Loading...
+</div> -->
 <section id="hero">
 	<div class="content" *ngIf="homepageHero">
 		<!-- <div [innerHTML]="homepageHero?.content?.rendered"></div> -->
-		<img [src]="homepageHero.better_featured_image.source_url">
+		<!-- <img [src]="homepageHero.better_featured_image.source_url" (load)="doSomething()"> -->
+		<img src="../../assets/vanessa-rusu-homepage-1.png" alt="Vanessa Rusu Profile Image" (load)="doSomething()">
 		<div [innerHTML]="homepageHero.content.rendered"></div>
 <!-- 		<div class="buttons">
 			<a href="#" class="button button-mint">learn more</a>
@@ -78,5 +82,5 @@
 	</div>
 	</div>
 </section>
-<app-cta></app-cta>
+<app-cta #homeCTA></app-cta>
 <app-instagram-feed></app-instagram-feed>

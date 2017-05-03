@@ -1,21 +1,39 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+import { Component, OnInit, animate, transition, style, trigger } from '@angular/core';
+import { Router, NavigationEnd, ActivatedRoute  } from '@angular/router';
 
 import { PageScrollConfig } from 'ng2-page-scroll';
+import { PostsService } from './posts/posts.service';
+import {Subscription} from 'rxjs';
+
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [
+  trigger('fadeInOut', [
+    transition(':leave', [   // :leave is alias to '* => void'
+      animate(500, style({opacity:0})) 
+    ])
+  ])
+]
+
 })
 export class AppComponent implements OnInit {
-	constructor(private router: Router, private route: ActivatedRoute){
+
+  title = 'app works!';
+  loaded: boolean = false;
+  loadingHandler: Subscription = this.postService._isLoaded.subscribe((value) => {
+    this.loaded = value;
+  });
+
+	constructor(private router: Router, private route: ActivatedRoute, private postService: PostsService) {
     PageScrollConfig.defaultScrollOffset = 50;
     PageScrollConfig.defaultDuration = 300;
-    // PageScrollConfig.pageScrollFinish(){}
   }
 	ngOnInit() {
+    console.log('%c Hot pink console logging ftw :)', 'font-size: 16px; color: #FC30AA');
         this.router.events.subscribe((evt) => {
             if (!(evt instanceof NavigationEnd)) {
                 return;
@@ -23,18 +41,6 @@ export class AppComponent implements OnInit {
             window.scrollTo(0, 0)
         });
 
-      //   this.route.fragment.subscribe(f => {
-      //     // if(f) {
-      //       console.log('in here');
-      //       const element = document.querySelector(f);
-      //       if (element) element.scrollIntoView(element);
-      //       // }
-      //   });
-      // }
-
     }
-
-  title = 'app works!';
-  public baseURL : string =  'http://localhost:8888/vanessarusu/bower_components/vanessarusu/wp-json/wp/v2/';
 }
 

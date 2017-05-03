@@ -30,7 +30,7 @@ export class SiteHeaderComponent implements OnInit {
   constructor(@Inject(DOCUMENT) private document: Document, private router: Router) { }
 
   ngOnInit() {
-    console.log('welcome :)');
+    // console.log('welcome :)');
   }
 
   @HostListener("window:scroll", [])

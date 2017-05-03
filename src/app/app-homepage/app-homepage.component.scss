@@ -1,4 +1,14 @@
 @import '../../styles.scss';
+#yolo {
+	position: fixed;
+	z-index: 500;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: red;
+	opacity: 0.3;
+}
 	:host /deep/ #hero {
 	color: $white;
 	background: url(assets/homepage-hello.svg) top right no-repeat, $navy;
@@ -210,6 +220,7 @@
 				h1 {
 					font-size: 2rem;
 					line-height: 2.5rem;
+					margin-top: 20vh;
 				}
 				p {
 					max-width: 100%;

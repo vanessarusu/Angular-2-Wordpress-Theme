@@ -2,8 +2,7 @@
 <header [class.fixed]="navIsFixed" [@fadeInOut]>
 	<nav>
 	<h1 class="hidden">Main Navigation</h1>
-	<!-- <img id="logo" src="../../assets/logo.svg" [routerLink]="['/']"> -->
-	<img id="logo" src="assets/logo.svg" [routerLink]="['/']">
+	<img id="logo" src="../assets/logo.svg" [routerLink]="['/']">
 		<div>
 			<div [ngClass]="{'container':true, 'open': isActive }" (click)="animateNav()">
 				<div></div>
@@ -18,9 +17,9 @@
 
 			<li><a pageScroll [routerLink]="['/']" fragment="services" href="#services" (pageScrollFinish)="animateNav()">Services</a></li>
 
-			<li><a pageScroll [routerLink]="['about']" (pageScrollFinish)="animateNav()">About</a></li>
+			<li><a [routerLink]="['about']" (click)="animateNav()">About</a></li>
 
-			<li><a pageScroll [routerLink]="['contact']" (pageScrollFinish)="animateNav()">Contact</a></li>
+			<li><a [routerLink]="['contact']" (click)="animateNav()">Contact</a></li>
 		</ul>
 	</nav>
 </header>

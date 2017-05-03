@@ -12,7 +12,7 @@
 
 	<aside id="sidebar" #sidebar>
 		<div class="logo-container">
-			<img [src]="post.acf.logo">
+			<img [src]="post.acf.logo" (load)="setLoaded()">
 		</div>
 		<div class="content">
 			<div class="container">
@@ -53,7 +53,9 @@
 	</aside>
 	
 </div>
-<div *ngIf="!post">
-	<p>no post found</p>
+<div *ngIf="!post" id="redirect" class="content">
+	<h1>404</h1>
+	<h2>This page doesn't exist :(</h2>
+	<a href="#" [routerLink]="['/']">Go Back</a>
 </div>
 

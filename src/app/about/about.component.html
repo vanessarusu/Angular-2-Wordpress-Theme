@@ -8,7 +8,7 @@
 		<div class="left">
 			<object type="image/svg+xml" data="../../../assets/test.svg" id="hexAbout" #hexAbout></object>
 		</div>
-		<div *ngIf="aboutContent" class="right" [innerHTML]="aboutContent.content.rendered"></div>
+		<div *ngIf="aboutContent" class="right" [innerHTML]="aboutContent.content.rendered" (load)="doSomething()"></div>
 	</div>
 </section>
 <section id="techSpecs" *ngIf="techSpecs">

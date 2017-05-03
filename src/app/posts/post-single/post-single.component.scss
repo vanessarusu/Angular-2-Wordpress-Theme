@@ -93,11 +93,41 @@ figure {
 		text-align: center;
 	}
 }
+#redirect {
+	padding: 5rem 0 8rem;
+	text-align: center;
+	h1 {
+		margin: 2rem auto;
+		font-size: 10rem;
+		color: $mint;
+	}
+	h2 {
+		color: $navy;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		margin-bottom: 3rem;
+	}
+	a {
+		color: $navy;
+		font-size: 1.3rem;
+		font-weight: bold;
+		transition: all 0.2s ease;
+		padding: 0.6rem 2rem;
+		border: 2px solid $mint;
+		&:hover {
+			color: $hotpink;
+		}
+	}
+}
 
 
 
 
 @media screen and (max-width: 800px) {
+	figure {
+		max-height: 50vh;
+		min-height: 200px;
+	}
 	#postBody {
 		width: 90%;
 		float: none;
@@ -106,6 +136,15 @@ figure {
 	}
 	#sidebar {
 		display: none;
+	}
+	#redirect {
+		padding: 2rem 0 8rem;
+		h1 {
+			font-size: 5rem;
+		}
+		h2 {
+			font-size: 1rem;
+		}
 	}
 }
 

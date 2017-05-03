@@ -1,6 +1,10 @@
-<!-- <h1>
-  {{title}}
-</h1> -->
+<div *ngIf="loaded == false" id="loadingScreen" [@fadeInOut]>
+	<h1>
+		Welcome!
+	</h1>
+	<div class="loader"></div>
+	<div class="loader"></div>
+</div>
 <app-site-header></app-site-header>
 <router-outlet></router-outlet>
 <app-site-footer></app-site-footer>

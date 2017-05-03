@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 import { Post } from './post';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class PostsService {
@@ -14,7 +15,14 @@ export class PostsService {
 	private postsUrl ='http://vanessarusu.com/angular/wp-json/wp/v2/';
 	private customUrl = 'http://vanessarusu.com/angular/wp-json/acf/v3/';
 	public post: any;
-	constructor(private http: Http) { }
+
+	private isLoadedSource = new BehaviorSubject<boolean>(false);
+	public _isLoaded: Observable<boolean> = this.isLoadedSource.asObservable();
+
+
+
+	constructor(private http: Http) { 
+	}
 	storeSinglePost(post:Post) {
 		return this.post = post;
 	}
@@ -40,12 +48,17 @@ export class PostsService {
 	getCustomPosts(): Observable<Post[]> {
 		return this.http
 		.get(this.customUrl+ `posts/`)
-		// .merge(this.getPostsByCategory(2))
 		.map((res: Response) => res.json());
 	}
-	getInstagramFeed(): Observable<any> {
-		return this.http
-		.get('https://api.instagram.com/v1/users/self/media/recent?access_token=235119356.78d1867.bca5c0bf8f004a38b5d11f7bd0fabac0&count=10&callback=?')
-		.map((res: Response) => res.json());
+	//cors issue with the below
+	// getInstagramFeed(): Observable<any> {
+	// 	return this.http
+	// 	// .get('https://api.instagram.com/v1/users/self/media/recent?access_token=235119356.78d1867.bca5c0bf8f004a38b5d11f7bd0fabac0&count=10&callback=?')
+	// 	// 5382817305.8cb2231.acfe6adb834446eb84d5d8d5f3b21ce2
+	// 	.get('https://api.instagram.com/v1/users/self/media/recent?access_token=5382817305.8cb2231.acfe6adb834446eb84d5d8d5f3b21ce2&count=10&callback=?')
+	// 	.map((res: Response) => res.json());
+	// }
+	checkLoaded(bool) {
+		this.isLoadedSource.next(bool);
 	}
 }
